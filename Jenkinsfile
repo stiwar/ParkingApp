@@ -20,7 +20,7 @@ pipeline{
 		}
 		
 		environment {
-        PROJECT_PATH_BACK = 'AdnCeibaParking'
+        PROJECT_PATH_BACK = 'ParkingApp'
 		}
 		parameters{
 			booleanParam defaultValue: false, description: 'Push a registry AWS', name: 'pushdeploy'
@@ -31,7 +31,7 @@ pipeline{
 			stage('Checkout') {
 				steps {
                 echo '------------>Checkout desde Git Microservicio<------------'
-                checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'AdnCeibaParking']], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7fe28495-6f45-4577-8c7b-dce727e78f14', url: 'https://github.com/kearciniegas/AdnCeibaParking.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'ParkingApp']], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7fe28495-6f45-4577-8c7b-dce727e78f14', url: 'https://github.com/stiwar/ParkingApp.git']]])
 				}
 			}
 		
@@ -67,7 +67,7 @@ pipeline{
 				steps{
 					echo '------------>Analisis de código estático<------------'
 					  withSonarQubeEnv('Sonar') {
-                        sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dsonar.projectKey=pabloparking.master -Dsonar.projectName=pabloparking.master -Dproject.settings=./sonar-project.properties"
+                        sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dsonar.projectKey=ParkingApp.master -Dsonar.projectName=ParkingApp.master -Dproject.settings=./sonar-project.properties"
                      }
 				}
 			}
@@ -77,7 +77,7 @@ pipeline{
 		}
 		post {
 			failure {
-				mail(to: 'kevin.arciniegas@ceiba.com.co',
+				mail(to: 'luis.arteaga@ceiba.com.co',
 				body:"Build failed in Jenkins: Project: ${env.JOB_NAME} Build /n Number: ${env.BUILD_NUMBER} URL de build: ${env.BUILD_NUMBER}/n/nPlease go to ${env.BUILD_URL} and verify the build",
 				subject: "ERROR CI: ${env.JOB_NAME}")
 			}
