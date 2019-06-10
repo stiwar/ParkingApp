@@ -1,6 +1,7 @@
 package com.ceiba.parkingApp.parkingApp.dominio.entidad;
 
 public class TipoVehiculo {
+	
 	private Integer id;
 	private String nombre;
 

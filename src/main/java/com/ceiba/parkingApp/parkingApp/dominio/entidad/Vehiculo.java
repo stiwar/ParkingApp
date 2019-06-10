@@ -2,22 +2,23 @@ package com.ceiba.parkingApp.parkingApp.dominio.entidad;
 
 import java.util.Date;
 
-public class Cobro {
+public class Vehiculo {
 	private Integer id;
-	private TipoVehiculo idTipoVehiculo;
+	private TipoVehiculo tipoVehiculo;
 	private String placa;
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Double totalCobro;
 
-	public Cobro(Integer id, TipoVehiculo idTipoVehiculo, String placa, Date fechaEntrada, Date fechaSalida,
+	public Vehiculo(Integer id, TipoVehiculo tipoVehiculo, String placa, Date fechaEntrada, Date fechaSalida,
 			Double totalCobro) {
+		super();
 		this.id = id;
+		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.totalCobro = totalCobro;
-
 	}
 
 	public Integer getId() {
@@ -28,12 +29,12 @@ public class Cobro {
 		this.id = id;
 	}
 
-	public TipoVehiculo getIdTipoVehiculo() {
-		return idTipoVehiculo;
+	public TipoVehiculo getTipoVehiculo() {
+		return tipoVehiculo;
 	}
 
-	public void setIdTipoVehiculo(TipoVehiculo idTipoVehiculo) {
-		this.idTipoVehiculo = idTipoVehiculo;
+	public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+		this.tipoVehiculo = tipoVehiculo;
 	}
 
 	public String getPlaca() {

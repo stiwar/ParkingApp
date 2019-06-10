@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.parkingApp.parkingApp.aplicacion.consulta.ConsultarAllVehiculo;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Cobro;
+import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 
 
 @RestController
@@ -22,7 +22,7 @@ public class VehiculoControlador {
 	private ConsultarAllVehiculo consultarAllVehiculos;
 	
 	@GetMapping
-	public List<Cobro> listar() {
+	public List<Vehiculo> listar() {
 		return consultarAllVehiculos.execute();
 	}
 }

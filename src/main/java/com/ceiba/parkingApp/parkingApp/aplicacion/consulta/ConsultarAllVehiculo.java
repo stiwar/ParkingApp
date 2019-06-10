@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ceiba.parkingApp.parkingApp.dominio.VehiculosParqueados;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Cobro;
+import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 
 
 @Service
@@ -17,7 +17,7 @@ public class ConsultarAllVehiculo {
 	@Autowired
     VehiculosParqueados vehiculosParqueados;
 	
-	public List<Cobro> execute() {
+	public List<Vehiculo> execute() {
 		return vehiculosParqueados.listaVehiculos();
 	}
 }

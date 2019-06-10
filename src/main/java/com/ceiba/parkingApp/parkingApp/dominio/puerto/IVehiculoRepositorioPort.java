@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 
-
-public interface ICobroPuerto {
-	List<Vehiculo> listaVehiculos();
+public interface IVehiculoRepositorioPort {
+	public List<Vehiculo> obtenerVehiculos();
 }
