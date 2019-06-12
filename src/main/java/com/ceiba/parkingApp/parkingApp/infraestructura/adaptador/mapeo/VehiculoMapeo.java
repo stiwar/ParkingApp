@@ -20,7 +20,7 @@ public class VehiculoMapeo {
 		List<Vehiculo> vehiculos = new ArrayList<>();
 		for(VehiculoEntidad vehiculoEntidad : listaVehiculoEntidad) {
 			Vehiculo vehiculo = new Vehiculo(vehiculoEntidad.getId(), tipoVehiculoMapeo.mapearADominio(vehiculoEntidad.getTipoVehiculoEntidad()),
-					                         vehiculoEntidad.getPlaca(), vehiculoEntidad.getFechaEntrada(), 
+					                         vehiculoEntidad.getPlaca(), vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaEntrada(), 
 					                         vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getTotalCobro()
 					                        );
 			vehiculos.add(vehiculo);
@@ -31,9 +31,17 @@ public class VehiculoMapeo {
 	}
 	
 	public VehiculoEntidad mapearAEntidad(Vehiculo vehiculo) {
-		return new VehiculoEntidad(vehiculo.getId(), tipoVehiculoMapeo.mapearAEntidad(vehiculo.getTipoVehiculo()), 
-				                   vehiculo.getPlaca(), vehiculo.getFechaEntrada(), 
+		VehiculoEntidad vehiculoEntidad = null;
+		vehiculoEntidad = new VehiculoEntidad(vehiculo.getId(), tipoVehiculoMapeo.mapearAEntidad(vehiculo.getTipoVehiculo()), 
+				                   vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), 
 				                   vehiculo.getFechaSalida(), vehiculo.getTotalCobro()
 				                   );
+		return vehiculoEntidad;
+	}
+	
+	public Vehiculo mapearEntidadADominio(VehiculoEntidad vehiculoEntidad) {
+		return new Vehiculo(vehiculoEntidad.getId(), tipoVehiculoMapeo.mapearADominio(vehiculoEntidad.getTipoVehiculoEntidad()), 
+				            vehiculoEntidad.getPlaca(), vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaEntrada(), 
+				            vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getTotalCobro());
 	}
 }

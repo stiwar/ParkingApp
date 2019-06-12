@@ -17,6 +17,9 @@ public class TipoVehiculoEntidad {
 	@Column(nullable = false)
 	private String nombre;
 
+	public TipoVehiculoEntidad() {
+	}
+
 	public TipoVehiculoEntidad(Integer id, String nombre) {
 		super();
 		this.id = id;
@@ -39,5 +42,4 @@ public class TipoVehiculoEntidad {
 		this.nombre = nombre;
 	}
 
-	
 }

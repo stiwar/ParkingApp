@@ -4,6 +4,18 @@ public class TipoVehiculo {
 	
 	private Integer id;
 	private String nombre;
+	
+	public TipoVehiculo() {
+	}
+	
+	public TipoVehiculo(Integer id) {
+		this.id = id;
+	}
+
+	public TipoVehiculo(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
 
 	public TipoVehiculo(Integer id, String nombre) {
 		this.id = id;

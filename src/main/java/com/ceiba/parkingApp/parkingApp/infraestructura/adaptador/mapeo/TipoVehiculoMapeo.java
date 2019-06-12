@@ -25,6 +25,7 @@ public class TipoVehiculoMapeo {
 		if( tipoVehiculo != null ) {
 			tipoVehiculoEntidad = new TipoVehiculoEntidad(tipoVehiculo.getId(), tipoVehiculo.getNombre());
 		}
+
 		return tipoVehiculoEntidad;
 		
 	}

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.puerto.ICobroPuerto;
-import com.ceiba.parkingApp.parkingApp.infraestructura.mapeo.VehiculoMapeo;
+import com.ceiba.parkingApp.parkingApp.infraestructura.mapeo.VehiculoMapeo2;
 
 
 @Repository
@@ -19,10 +19,11 @@ public class CobroAdaptadorImpl  implements ICobroPuerto {
 	private CobroAdaptador cobroAdaptador;
 	
 	@Autowired
-	private VehiculoMapeo cobroMapeo;
+	private VehiculoMapeo2 cobroMapeo;
 	
 	@Override
 	public List<Vehiculo> listaVehiculos() {
-		return cobroMapeo.mapToDomain(cobroAdaptador.findAll());
+		//return cobroMapeo.mapToDomain(cobroAdaptador.findAll());
+		return null;
 	}	
 }

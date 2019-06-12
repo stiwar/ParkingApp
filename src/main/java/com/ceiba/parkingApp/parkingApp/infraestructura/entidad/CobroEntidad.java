@@ -20,7 +20,7 @@ public class CobroEntidad {
 
 	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name = "tipovehiculo")
-	private TipoVehiculoEntidad idTipoVehiculo;
+	private TipoVehiculoEntidad2 idTipoVehiculo;
 
 	@Column(nullable = false)
 	private String placa;
@@ -41,7 +41,7 @@ public class CobroEntidad {
 	public CobroEntidad() {
 	}
 
-	public CobroEntidad(Integer id, TipoVehiculoEntidad idTipoVehiculo, String placa, Date fechaEntrada,
+	public CobroEntidad(Integer id, TipoVehiculoEntidad2 idTipoVehiculo, String placa, Date fechaEntrada,
 			Date fechaSalida, Double totalCobro) {
 		super();
 		this.id = id;
@@ -56,11 +56,11 @@ public class CobroEntidad {
 		this.id = id;
 	}
 
-	public TipoVehiculoEntidad getIdTipoVehiculo() {
+	public TipoVehiculoEntidad2 getIdTipoVehiculo() {
 		return idTipoVehiculo;
 	}
 
-	public void setIdTipoVehiculo(TipoVehiculoEntidad idTipoVehiculo) {
+	public void setIdTipoVehiculo(TipoVehiculoEntidad2 idTipoVehiculo) {
 		this.idTipoVehiculo = idTipoVehiculo;
 	}
 

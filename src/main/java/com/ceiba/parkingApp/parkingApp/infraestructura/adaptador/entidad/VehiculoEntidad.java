@@ -4,15 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.entidad.TipoVehiculoEntidad;
 
 @Entity
 @Table(name = "vehiculo")
@@ -21,7 +18,8 @@ public class VehiculoEntidad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@OneToOne(optional = false, fetch = FetchType.EAGER)
+	//@OneToOne(optional = false, fetch = FetchType.EAGER)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "tipovehiculo")
 	private TipoVehiculoEntidad tipoVehiculoEntidad;
 
@@ -29,21 +27,27 @@ public class VehiculoEntidad {
 	private String placa;
 
 	@Column(nullable = false)
+	private double cilindraje;
+
+	@Column(nullable = false)
 	private Date fechaEntrada;
 
-	@Column
+	@Column(nullable = true)
 	private Date fechaSalida;
 
-	@Column
+	@Column(nullable = true)
 	private Double totalCobro;
 
 	public VehiculoEntidad() {
 	}
 
-	public VehiculoEntidad(Integer id, TipoVehiculoEntidad tipoVehiculoEntidad, String placa, Date fechaEntrada,	Date fechaSalida, Double totalCobro) {
+	public VehiculoEntidad(Integer id, TipoVehiculoEntidad tipoVehiculoEntidad, String placa, double cilindraje,
+			Date fechaEntrada, Date fechaSalida, Double totalCobro) {
+		super();
 		this.id = id;
 		this.tipoVehiculoEntidad = tipoVehiculoEntidad;
 		this.placa = placa;
+		this.cilindraje = cilindraje;
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.totalCobro = totalCobro;
@@ -73,6 +77,14 @@ public class VehiculoEntidad {
 		this.placa = placa;
 	}
 
+	public double getCilindraje() {
+		return cilindraje;
+	}
+
+	public void setCilindraje(double cilindraje) {
+		this.cilindraje = cilindraje;
+	}
+
 	public Date getFechaEntrada() {
 		return fechaEntrada;
 	}
@@ -97,9 +109,4 @@ public class VehiculoEntidad {
 		this.totalCobro = totalCobro;
 	}
 
-	
-
-	
-
-	
 }

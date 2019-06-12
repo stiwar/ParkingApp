@@ -10,12 +10,12 @@ import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.infraestructura.entidad.CobroEntidad;
 
 @Component
-public class VehiculoMapeo {
+public class VehiculoMapeo2 {
 
 	@Autowired
-	private TipoVehiculoMapeo tipoVehiculoMapeo;
+	private TipoVehiculoMapeo2 tipoVehiculoMapeo;
 
-	public List<Vehiculo> mapToDomain(Iterable<CobroEntidad> listaEntidad) {
+	/*public List<Vehiculo> mapToDomain(Iterable<CobroEntidad> listaEntidad) {
 		List<Vehiculo> listaRegistro = new ArrayList<>();
 		listaEntidad.forEach(cobroEntidad -> {
 			Vehiculo cobro = new Vehiculo(cobroEntidad.getId(),tipoVehiculoMapeo.mapToDomain(cobroEntidad.getIdTipoVehiculo()), cobroEntidad.getPlaca(),cobroEntidad.getFechaEntrada(),
@@ -23,5 +23,5 @@ public class VehiculoMapeo {
 			listaRegistro.add(cobro);
 		});
 		return listaRegistro;
-	}
+	}*/
 }
