@@ -3,11 +3,11 @@ package com.ceiba.parkingApp.parkingApp.dominio.entidad;
 import java.util.Date;
 
 public class Vehiculo {
-	
+
 	private final String TIPO_VEHICULO_OBLIGATORIO = "El tipo de vehiculo es obligatorio";
 	private final String PLACA_OBLIGATORIO = "La placa del vehiculo es obligatoria";
 	private final String CILINDRAJE_OBLIGATORIO = "El cilindraje del Vehiculo es obligatorio";
-	
+
 	private Integer id;
 	private TipoVehiculo tipoVehiculo;
 	private String placa;
@@ -15,11 +15,12 @@ public class Vehiculo {
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Double totalCobro;
-	
+	private int estado;
+
 	public Vehiculo() {
-		
+
 	}
-	
+
 	public Vehiculo(TipoVehiculo tipoVehiculo, String placa, double cilindraje) {
 		ValidadorArgumento.validarCamposRequeridos(tipoVehiculo, TIPO_VEHICULO_OBLIGATORIO);
 		ValidadorArgumento.validarCamposRequeridos(placa, PLACA_OBLIGATORIO);
@@ -30,7 +31,7 @@ public class Vehiculo {
 	}
 
 	public Vehiculo(Integer id, TipoVehiculo tipoVehiculo, String placa, double cilindraje, Date fechaEntrada,
-			Date fechaSalida, Double totalCobro) {
+			Date fechaSalida, Double totalCobro, int estado) {
 		this.id = id;
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
@@ -38,6 +39,7 @@ public class Vehiculo {
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.totalCobro = totalCobro;
+		this.estado = estado;
 	}
 
 	public Integer getId() {
@@ -94,6 +96,14 @@ public class Vehiculo {
 
 	public void setTotalCobro(Double totalCobro) {
 		this.totalCobro = totalCobro;
+	}
+
+	public int getEstado() {
+		return estado;
+	}
+
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 
 }

@@ -18,7 +18,7 @@ public class VehiculoEntidad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	//@OneToOne(optional = false, fetch = FetchType.EAGER)
+	// @OneToOne(optional = false, fetch = FetchType.EAGER)
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "tipovehiculo")
 	private TipoVehiculoEntidad tipoVehiculoEntidad;
@@ -38,11 +38,14 @@ public class VehiculoEntidad {
 	@Column(nullable = true)
 	private Double totalCobro;
 
+	@Column(nullable = false)
+	private int estado;
+
 	public VehiculoEntidad() {
 	}
 
 	public VehiculoEntidad(Integer id, TipoVehiculoEntidad tipoVehiculoEntidad, String placa, double cilindraje,
-			Date fechaEntrada, Date fechaSalida, Double totalCobro) {
+			Date fechaEntrada, Date fechaSalida, Double totalCobro, int estado) {
 		super();
 		this.id = id;
 		this.tipoVehiculoEntidad = tipoVehiculoEntidad;
@@ -51,6 +54,7 @@ public class VehiculoEntidad {
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.totalCobro = totalCobro;
+		this.estado = estado;
 	}
 
 	public Integer getId() {
@@ -107,6 +111,14 @@ public class VehiculoEntidad {
 
 	public void setTotalCobro(Double totalCobro) {
 		this.totalCobro = totalCobro;
+	}
+
+	public int getEstado() {
+		return estado;
+	}
+
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 
 }

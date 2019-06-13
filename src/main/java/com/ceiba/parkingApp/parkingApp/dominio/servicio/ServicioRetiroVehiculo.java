@@ -25,6 +25,7 @@ public class ServicioRetiroVehiculo {
 	private static final String CARRO = "Carro";
 	private static final String MOTO = "Moto";
 	private static final int TOTAL_HORAS_DIA = 24;
+	private static int VEHICULO_ESTADO_INACTIVO = 0;
 	
 	Vehiculo vehiculo = null;
 	Date fechaActual = new Date();
@@ -33,9 +34,10 @@ public class ServicioRetiroVehiculo {
 	@Autowired
 	private IVehiculoRepositorioPort vehiculoRepositorioPort;
 	
-	public double eliminarRegistroVehiculo(int idVehiculo) {
-		
+	public Vehiculo eliminarRegistroVehiculo(int idVehiculo) {
+		System.out.println("prueba ingreso");
 		Vehiculo vehiculo = recuperarVehiculo(idVehiculo);
+		System.out.println("placa: "+vehiculo.getPlaca());
 		Date fechaIngreso = vehiculo.getFechaEntrada();
 		long totalHoras = obtenerHoras(fechaIngreso, fechaActual);
 		double cobro = 0;
@@ -44,10 +46,10 @@ public class ServicioRetiroVehiculo {
 		}else {
 			cobro = obtenerCobroPorHora(totalHoras, vehiculo);
 		}
-		
-		vehiculoRepositorioPort.retirarVehiculo(vehiculo);
-		
-		return cobro;
+		vehiculo.setEstado(VEHICULO_ESTADO_INACTIVO);
+		vehiculo.setFechaSalida(new Date());
+		vehiculo.setTotalCobro(cobro);
+		return vehiculoRepositorioPort.retirarVehiculo(vehiculo);
 	}
 	
 	private Vehiculo recuperarVehiculo(int idVehiculo) {

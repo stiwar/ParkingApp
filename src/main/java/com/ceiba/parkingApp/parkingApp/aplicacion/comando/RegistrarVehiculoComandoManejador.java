@@ -13,12 +13,12 @@ public class RegistrarVehiculoComandoManejador {
 	private ServicioRegistroVehiculo servicioRegistroVehiculo;
 	//private IVehiculoRepositorioPort vehiculoRepositorioPort;
 	
-	public boolean guardarVehiculo(VehiculoComando vehiculoComando) {
+	public VehiculoComando guardarVehiculo(VehiculoComando vehiculoComando) {
 		//TipoVehiculo tipoVehiculo = new TipoVehiculo(vehiculoComando.getTipoVehiculo().getNombre());
 		TipoVehiculo tipoVehiculo = new TipoVehiculo(vehiculoComando.getTipoVehiculo().getId(),vehiculoComando.getTipoVehiculo().getNombre());
 		Vehiculo vehiculo = new Vehiculo(tipoVehiculo, vehiculoComando.getPlaca(), vehiculoComando.getCilindraje());
+		vehiculo = servicioRegistroVehiculo.guardarRegistroVehiculo(vehiculo);
 		//aqui hay que agregar la capa de servicio
-		return servicioRegistroVehiculo.guardarRegistroVehiculo(vehiculo);
-		//return vehiculoRepositorioPort.registrarVehiculo(  );
+		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getEstado());
 	}
 }

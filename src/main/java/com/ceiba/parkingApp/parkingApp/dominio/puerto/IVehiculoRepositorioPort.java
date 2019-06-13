@@ -8,12 +8,12 @@ public interface IVehiculoRepositorioPort {
 
 	public List<Vehiculo> obtenerVehiculos();
 
-	public boolean registrarVehiculo(Vehiculo vehiculo);
+	public Vehiculo registrarVehiculo(Vehiculo vehiculo);
 
-	public int obtenerTotalPorIdTipoVehiculo(int idTipoVehiculo);
+	public int obtenerTotalVehiculoPorIdTipoVehiculo(int idTipoVehiculo);
 
 	public Vehiculo obtenerVehiculoPorId(int idVehiculo);
 
-	public boolean retirarVehiculo(Vehiculo vehiculo);
+	public Vehiculo retirarVehiculo(Vehiculo vehiculo);
 
 }

@@ -20,9 +20,10 @@ public class ServicioRegistroVehiculo {
 	private static final int LIMITE_MAXIMO_MOTOS = 10;
 	private static final String NO_HAY_ESPACIO_PARA_CARROS = "No hay espacio disponible para carros";
 	private static final String NO_HAY_ESPACIO_PARA_MOTOS = "No hay espacio disponible para motos";
-	private static final int POSICION_LETRA_INICIAL = 0;
+	private static final int POSICION_LETRA_INICIAL_PLACA_VEHICULO = 0;
 	private static final String LETRA_A = "A";
 	private static final String ACCESO_DENEGADO = "Las placas que inician con la letra '" + LETRA_A + "' solo pueden ingresar los Domingos o Lunes";
+	private static int VEHICULO_ESTADO_ACTIVO = 1;
 	
 	private String nombreTipoVehiculo = "";
 	private String letraInicialPlaca = "";
@@ -35,8 +36,7 @@ public class ServicioRegistroVehiculo {
 	//@Autowired
 	//private ITipoVehiculoRepositorioPort tipoVehiculoRepositorioPort;
 	
-	public boolean guardarRegistroVehiculo(Vehiculo vehiculo) {
-		//logica negocio registrar vehiculo
+	public Vehiculo guardarRegistroVehiculo(Vehiculo vehiculo) {
 		nombreTipoVehiculo = vehiculo.getTipoVehiculo().getNombre();
 		idTipoVehiculo = vehiculo.getTipoVehiculo().getId();
 		
@@ -56,6 +56,7 @@ public class ServicioRegistroVehiculo {
 		}
 		
 		vehiculo.setFechaEntrada(new Date());
+		vehiculo.setEstado(VEHICULO_ESTADO_ACTIVO);
 		return vehiculoRepositorioPort.registrarVehiculo(vehiculo);
 	}
 	
@@ -64,11 +65,11 @@ public class ServicioRegistroVehiculo {
 	//verificar que el vehiculo no ha sido registrado antes
 	
 	private int validarEspacioDisponible(int idTipoVehiculo) {
-		return vehiculoRepositorioPort.obtenerTotalPorIdTipoVehiculo(idTipoVehiculo);// .obtenerTotalPorNombreTipoVehiculo(nombreTipoVehiculo);
+		return vehiculoRepositorioPort.obtenerTotalVehiculoPorIdTipoVehiculo(idTipoVehiculo);// .obtenerTotalPorNombreTipoVehiculo(nombreTipoVehiculo);
 	}
 	
 	private String obtenerLetraInicialPlaca(String placa) {
-		return String.valueOf(placa.charAt(POSICION_LETRA_INICIAL)); 
+		return String.valueOf(placa.charAt(POSICION_LETRA_INICIAL_PLACA_VEHICULO)); 
 	}
 	
 	private int obtenerDiaSemana() {
@@ -76,4 +77,8 @@ public class ServicioRegistroVehiculo {
 		calendar.setTime(new Date());
 		return calendar.get(Calendar.DAY_OF_WEEK);
 	}
+	/*private LocalDateTime convertirDateALocalDateTime() {
+		return 
+		
+	}*/
 }
