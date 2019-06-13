@@ -40,11 +40,11 @@ public class ServicioRegistroVehiculo {
 		nombreTipoVehiculo = vehiculo.getTipoVehiculo().getNombre();
 		idTipoVehiculo = vehiculo.getTipoVehiculo().getId();
 		
-		if( nombreTipoVehiculo.equalsIgnoreCase(CARRO) && validarEspacioDisponible(idTipoVehiculo) >= LIMITE_MAXIMO_CARROS ) {
+		if( nombreTipoVehiculo.equalsIgnoreCase(CARRO) && obtenerCantidadVehiculos(idTipoVehiculo) >= LIMITE_MAXIMO_CARROS ) {
 			throw new VehiculoExcepcion(NO_HAY_ESPACIO_PARA_CARROS);
 		}
 		
-		if( nombreTipoVehiculo.equalsIgnoreCase(MOTO) && validarEspacioDisponible(idTipoVehiculo) >= LIMITE_MAXIMO_MOTOS ) {
+		if( nombreTipoVehiculo.equalsIgnoreCase(MOTO) && obtenerCantidadVehiculos(idTipoVehiculo) >= LIMITE_MAXIMO_MOTOS ) {
 			throw new VehiculoExcepcion(NO_HAY_ESPACIO_PARA_MOTOS);
 		}
 		
@@ -64,7 +64,7 @@ public class ServicioRegistroVehiculo {
 	//verificar si la placa empieza por "A" y dia de la semana
 	//verificar que el vehiculo no ha sido registrado antes
 	
-	private int validarEspacioDisponible(int idTipoVehiculo) {
+	public int obtenerCantidadVehiculos(int idTipoVehiculo) {
 		return vehiculoRepositorioPort.obtenerTotalVehiculoPorIdTipoVehiculo(idTipoVehiculo);// .obtenerTotalPorNombreTipoVehiculo(nombreTipoVehiculo);
 	}
 	
