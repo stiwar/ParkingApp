@@ -62,8 +62,6 @@ public class ServicioRetiroVehiculo {
 		Date fInicial = formatearFechaATipoDate(cadenaFechaInicial);
 		Date fFinal = formatearFechaATipoDate(cadenaFechaFinal);
 		long diferenciaMilisegundos = fFinal.getTime() - fInicial.getTime();
-		
-		//long diferenciaHoras = diferenciaMilisegundos / (60 * 60 * 1000) % 24;
 		long diferenciaHoras = diferenciaMilisegundos / (60 * 60 * 1000);
 		return diferenciaHoras;
 	}

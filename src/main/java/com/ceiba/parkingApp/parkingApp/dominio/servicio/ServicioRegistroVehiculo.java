@@ -33,9 +33,6 @@ public class ServicioRegistroVehiculo {
 	@Autowired
 	private IVehiculoRepositorioPort vehiculoRepositorioPort;
 	
-	//@Autowired
-	//private ITipoVehiculoRepositorioPort tipoVehiculoRepositorioPort;
-	
 	public Vehiculo guardarRegistroVehiculo(Vehiculo vehiculo) {
 		nombreTipoVehiculo = vehiculo.getTipoVehiculo().getNombre();
 		idTipoVehiculo = vehiculo.getTipoVehiculo().getId();
@@ -60,12 +57,8 @@ public class ServicioRegistroVehiculo {
 		return vehiculoRepositorioPort.registrarVehiculo(vehiculo);
 	}
 	
-	//validar Espacio disponible dependiendo del tipo de vehiculo
-	//verificar si la placa empieza por "A" y dia de la semana
-	//verificar que el vehiculo no ha sido registrado antes
-	
 	public int obtenerCantidadVehiculos(int idTipoVehiculo) {
-		return vehiculoRepositorioPort.obtenerTotalVehiculoPorIdTipoVehiculo(idTipoVehiculo);// .obtenerTotalPorNombreTipoVehiculo(nombreTipoVehiculo);
+		return vehiculoRepositorioPort.obtenerTotalVehiculoPorIdTipoVehiculo(idTipoVehiculo);
 	}
 	
 	private String obtenerLetraInicialPlaca(String placa) {
@@ -77,8 +70,5 @@ public class ServicioRegistroVehiculo {
 		calendar.setTime(new Date());
 		return calendar.get(Calendar.DAY_OF_WEEK);
 	}
-	/*private LocalDateTime convertirDateALocalDateTime() {
-		return 
-		
-	}*/
+	
 }

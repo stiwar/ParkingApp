@@ -11,14 +11,11 @@ import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioRegistroVehiculo
 public class RegistrarVehiculoComandoManejador {
 	@Autowired
 	private ServicioRegistroVehiculo servicioRegistroVehiculo;
-	//private IVehiculoRepositorioPort vehiculoRepositorioPort;
 	
 	public VehiculoComando guardarVehiculo(VehiculoComando vehiculoComando) {
-		//TipoVehiculo tipoVehiculo = new TipoVehiculo(vehiculoComando.getTipoVehiculo().getNombre());
 		TipoVehiculo tipoVehiculo = new TipoVehiculo(vehiculoComando.getTipoVehiculo().getId(),vehiculoComando.getTipoVehiculo().getNombre());
 		Vehiculo vehiculo = new Vehiculo(tipoVehiculo, vehiculoComando.getPlaca(), vehiculoComando.getCilindraje());
 		vehiculo = servicioRegistroVehiculo.guardarRegistroVehiculo(vehiculo);
-		//aqui hay que agregar la capa de servicio
 		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getEstado());
 	}
 }

@@ -21,10 +21,7 @@ public class ServicioRegistroVehiculoTest {
 	private static final int ID_TIPO_VEHICULO_CARRO = 1;
 	private static final String NOMBRE_TIPO_CARRO = "Carro";
 	private static final int CANTIDAD_CARROS = 2;
-	//@InjectMocks
-	//private ServicioRegistroVehiculo servicioRegistroVehiculo;
-	
-	
+		
 	private VehiculoTestBuilder vehiculoBuilder;
 	private Vehiculo vehiculoCarro;
 	
@@ -42,17 +39,6 @@ public class ServicioRegistroVehiculoTest {
 		vehiculoRepositorioPort = mock(IVehiculoRepositorioPort.class);
 		servicioRegistroVehiculo = new ServicioRegistroVehiculo();
 	}
-	/*
-	@Test
-	public void validarEspacioDisponibleCarroTest() {
-		// arrange
-		when(servicioRegistroVehiculo.validarEspacioDisponible(ID_TIPO_VEHICULO_CARRO, NOMBRE_TIPO_CARRO)).then(answer)
-		// act
-		String espacio = when(servicioRegistroVehiculo.validarEspacioDisponible(ID_TIPO_VEHICULO_CARRO, NOMBRE_TIPO_CARRO));
-
-		// assert
-		Assert.assertEquals(HAY_ESPACIO, espacio);
-	}*/
 	
 	@Test
 	public void siHayEspacioParaCarroTest() {
