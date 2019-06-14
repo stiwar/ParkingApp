@@ -1,17 +1,17 @@
 pipeline{
 	
 		agent {
-		label 'Slave_Induccion'
+			label 'Slave_Induccion'
 		}
 	
         
 		triggers {
-        pollSCM('@hourly')
+        	pollSCM('@hourly')
 		}
 	
 		tools {
-		jdk 'JDK8_Centos' 
-		gradle 'Gradle5.0_Centos' 
+			jdk 'JDK8_Centos' 
+			gradle 'Gradle5.0_Centos' 
 		}
 	
 		options {
@@ -20,7 +20,7 @@ pipeline{
 		}
 		
 		environment {
-        PROJECT_PATH_BACK = 'ParkingApp'
+        	PROJECT_PATH_BACK = 'ParkingApp'
 		}
 		parameters{
 			booleanParam defaultValue: false, description: 'Push a registry AWS', name: 'pushdeploy'

@@ -29,7 +29,7 @@ public class Vehiculo {
 		this.placa = placa;
 		this.cilindraje = cilindraje;
 	}
-
+	
 	public Vehiculo(Integer id, TipoVehiculo tipoVehiculo, String placa, double cilindraje, Date fechaEntrada,
 			Date fechaSalida, Double totalCobro, int estado) {
 		this.id = id;

@@ -9,7 +9,9 @@ import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.entidad.Vehicul
 
 @Repository
 public interface IVehiculoRepositorio extends CrudRepository<VehiculoEntidad, Integer> {
+	
 	@Query("select count(v.id) from VehiculoEntidad v inner join v.tipoVehiculoEntidad tipoVehiculo where tipoVehiculo.id = :idTipoVehiculo")
 	public int countVehiculoByIdTipoVehiculo(@Param("idTipoVehiculo") Integer idTipoVehiculo);
+	
 	public VehiculoEntidad findById(int idTipoVehiculo);
 }

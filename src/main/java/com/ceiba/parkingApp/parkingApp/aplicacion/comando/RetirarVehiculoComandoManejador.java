@@ -12,9 +12,9 @@ public class RetirarVehiculoComandoManejador {
 	@Autowired
 	private ServicioRetiroVehiculo servicioRetiroVehiculo;
 	
-	public VehiculoComando eliminarVehiculo(int idVehiculo) {
-		Vehiculo vehiculo = servicioRetiroVehiculo.eliminarRegistroVehiculo(idVehiculo);
-		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getEstado()); 
+	public VehiculoComando gestionarRetiroVehiculo(int idVehiculo) {
+		Vehiculo vehiculo = servicioRetiroVehiculo.cobrarSalidaVehiculo(idVehiculo);
+		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado()); 
 	}
 
 }
