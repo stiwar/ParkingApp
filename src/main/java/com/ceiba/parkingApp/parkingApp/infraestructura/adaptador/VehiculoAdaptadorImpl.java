@@ -2,7 +2,6 @@ package com.ceiba.parkingApp.parkingApp.infraestructura.adaptador;
 
 import java.util.List;
 
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +22,7 @@ public class VehiculoAdaptadorImpl implements IVehiculoRepositorioPort {
 
 	@Override
 	public List<Vehiculo> obtenerVehiculos() {
-		return vehiculoMapeo.mapearADominio(Lists.newArrayList(vehiculoRepositorio.findAll()));
+		return vehiculoMapeo.mapearADominio((List<VehiculoEntidad>) vehiculoRepositorio.findAll());
 	}
 
 	@Override
