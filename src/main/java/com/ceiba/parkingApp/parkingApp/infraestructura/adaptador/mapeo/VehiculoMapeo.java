@@ -9,39 +9,40 @@ import org.springframework.stereotype.Component;
 import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.entidad.VehiculoEntidad;
 
-
 @Component
 public class VehiculoMapeo {
-	
+
 	@Autowired
-	private TipoVehiculoMapeo tipoVehiculoMapeo; 
-	
-	public List<Vehiculo> mapearADominio(List<VehiculoEntidad> listaVehiculoEntidad){
+	private TipoVehiculoMapeo tipoVehiculoMapeo;
+
+	public List<Vehiculo> mapearADominio(List<VehiculoEntidad> listaVehiculoEntidad) {
 		List<Vehiculo> vehiculos = new ArrayList<>();
-		for(VehiculoEntidad vehiculoEntidad : listaVehiculoEntidad) {
-			Vehiculo vehiculo = new Vehiculo(vehiculoEntidad.getId(), tipoVehiculoMapeo.mapearADominio(vehiculoEntidad.getTipoVehiculoEntidad()),
-					                         vehiculoEntidad.getPlaca(), vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaEntrada(), 
-					                         vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getTotalCobro(), vehiculoEntidad.getEstado()
-					                        );
+		for (VehiculoEntidad vehiculoEntidad : listaVehiculoEntidad) {
+			Vehiculo vehiculo = new Vehiculo(vehiculoEntidad.getId(),
+					tipoVehiculoMapeo.mapearADominio(vehiculoEntidad.getTipoVehiculoEntidad()),
+					vehiculoEntidad.getPlaca(), vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaEntrada(),
+					vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getTotalCobro(), vehiculoEntidad.getEstado());
 			vehiculos.add(vehiculo);
-					
+
 		}
-		return vehiculos; 
-		
+		return vehiculos;
+
 	}
-	
+
 	public VehiculoEntidad mapearAEntidad(Vehiculo vehiculo) {
 		VehiculoEntidad vehiculoEntidad = null;
-		vehiculoEntidad = new VehiculoEntidad(vehiculo.getId(), tipoVehiculoMapeo.mapearAEntidad(vehiculo.getTipoVehiculo()), 
-				                   vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), 
-				                   vehiculo.getFechaSalida(), vehiculo.getTotalCobro(), vehiculo.getEstado()
-				                   );
+		vehiculoEntidad = new VehiculoEntidad(vehiculo.getId(),
+				tipoVehiculoMapeo.mapearAEntidad(vehiculo.getTipoVehiculo()), vehiculo.getPlaca(),
+				vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(),
+				vehiculo.getTotalCobro(), vehiculo.getEstado());
 		return vehiculoEntidad;
 	}
-	
+
 	public Vehiculo mapearEntidadADominio(VehiculoEntidad vehiculoEntidad) {
-		return new Vehiculo(vehiculoEntidad.getId(), tipoVehiculoMapeo.mapearADominio(vehiculoEntidad.getTipoVehiculoEntidad()), 
-				            vehiculoEntidad.getPlaca(), vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaEntrada(), 
-				            vehiculoEntidad.getFechaSalida(), vehiculoEntidad.getTotalCobro(),vehiculoEntidad.getEstado());
+		return new Vehiculo(vehiculoEntidad.getId(),
+				tipoVehiculoMapeo.mapearADominio(vehiculoEntidad.getTipoVehiculoEntidad()), vehiculoEntidad.getPlaca(),
+				vehiculoEntidad.getCilindraje(), vehiculoEntidad.getFechaEntrada(), vehiculoEntidad.getFechaSalida(),
+				vehiculoEntidad.getTotalCobro(), vehiculoEntidad.getEstado());
 	}
+
 }

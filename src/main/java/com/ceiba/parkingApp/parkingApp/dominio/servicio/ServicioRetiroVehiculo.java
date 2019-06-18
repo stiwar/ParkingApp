@@ -2,13 +2,9 @@ package com.ceiba.parkingApp.parkingApp.dominio.servicio;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
 
-@Service
 public class ServicioRetiroVehiculo {
 	
 	private static final double VALOR_HORA_CARRO = 1000;
@@ -28,8 +24,11 @@ public class ServicioRetiroVehiculo {
 	
 	Date fechaActual = new Date();
 
-	@Autowired
 	private IVehiculoRepositorioPort vehiculoRepositorioPort;
+	
+	public ServicioRetiroVehiculo(IVehiculoRepositorioPort vehiculoRepositorioPort) {
+		this.vehiculoRepositorioPort = vehiculoRepositorioPort;	
+	}
 	
 	public Vehiculo cobrarSalidaVehiculo(int idVehiculo) {
 		Vehiculo vehiculo = recuperarVehiculo(idVehiculo);

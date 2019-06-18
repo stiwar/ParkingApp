@@ -3,14 +3,10 @@ package com.ceiba.parkingApp.parkingApp.dominio.servicio;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.excepcion.VehiculoExcepcion;
 import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
 
-@Service
 public class ServicioRegistroVehiculo {
 
 	private static final String CARRO = "Carro";
@@ -24,8 +20,11 @@ public class ServicioRegistroVehiculo {
 	private static final String ACCESO_DENEGADO = "Las placas que inician con la letra '" + LETRA_A	+ "' solo pueden ingresar los Domingos o Lunes";
 	private static int VEHICULO_ESTADO_ACTIVO = 1;
 
-	@Autowired
 	private IVehiculoRepositorioPort vehiculoRepositorioPort;
+	
+	public ServicioRegistroVehiculo(IVehiculoRepositorioPort vehiculoRepositorioPort) {
+		this.vehiculoRepositorioPort = vehiculoRepositorioPort;
+	}
 
 	public Vehiculo guardarRegistroVehiculo(Vehiculo vehiculo) {
 		String nombreTipoVehiculo = vehiculo.getTipoVehiculo().getNombre();
