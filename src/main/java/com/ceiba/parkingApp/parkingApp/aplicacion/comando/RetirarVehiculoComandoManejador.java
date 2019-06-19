@@ -13,7 +13,7 @@ public class RetirarVehiculoComandoManejador {
 	
 	public VehiculoComando gestionarRetiroVehiculo(int idVehiculo) {
 		Vehiculo vehiculo = servicioRetiroVehiculo.cobrarSalidaVehiculo(idVehiculo);
-		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado()); 
+		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro()); 
 	}
 
 }

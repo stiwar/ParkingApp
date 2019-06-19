@@ -26,8 +26,8 @@ public class VehiculoEntidad {
 	@Column(nullable = false)
 	private String placa;
 
-	@Column(nullable = false)
-	private double cilindraje;
+	@Column(nullable = true)
+	private Double cilindraje;
 
 	@Column(nullable = false)
 	private Date fechaEntrada;
@@ -44,7 +44,7 @@ public class VehiculoEntidad {
 	public VehiculoEntidad() {
 	}
 
-	public VehiculoEntidad(Integer id, TipoVehiculoEntidad tipoVehiculoEntidad, String placa, double cilindraje,
+	public VehiculoEntidad(Integer id, TipoVehiculoEntidad tipoVehiculoEntidad, String placa, Double cilindraje,
 			Date fechaEntrada, Date fechaSalida, Double totalCobro, int estado) {
 		super();
 		this.id = id;
@@ -81,11 +81,11 @@ public class VehiculoEntidad {
 		this.placa = placa;
 	}
 
-	public double getCilindraje() {
+	public Double getCilindraje() {
 		return cilindraje;
 	}
 
-	public void setCilindraje(double cilindraje) {
+	public void setCilindraje(Double cilindraje) {
 		this.cilindraje = cilindraje;
 	}
 

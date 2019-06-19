@@ -41,7 +41,7 @@ public class ServicioRegistroVehiculo {
 		}
 
 		String letraInicialPlaca = obtenerLetraInicialPlaca(vehiculo.getPlaca());
-
+		
 		int diaSemana = obtenerDiaSemana();
 		if (letraInicialPlaca.equalsIgnoreCase(LETRA_A)
 				&& (diaSemana != Calendar.SUNDAY && diaSemana != Calendar.MONDAY)) {

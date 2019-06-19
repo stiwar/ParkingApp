@@ -12,7 +12,7 @@ public class VehiculoTestBuilder {
 	private static final int ID_TIPO_VEHICULO_AUTO = 1;
 	private static final int ID_TIPO_VEHICULO_MOTO = 2;
 	private static final int ID_VEHICULO = 1;
-	private static final int CILINDRAJE_VEHICULO = 200;
+	private static final Double CILINDRAJE_VEHICULO = 200.0;
 	private static final String NOMBRE_TIPO_VEHICULO_CARRO = "Carro";
 	private static final String NOMBRE_TIPO_VEHICULO_MOTO = "Moto";
 	private static final String PLACA_VEHICULO = "XYZ12C";
@@ -24,7 +24,7 @@ public class VehiculoTestBuilder {
 	private int id;
 	private TipoVehiculo tipoVehiculo;
 	private String placa;
-	private double cilindraje;
+	private Double cilindraje;
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Double totalCobro;
@@ -48,8 +48,9 @@ public class VehiculoTestBuilder {
 	}
 	
 	public VehiculoTestBuilder conTipoVehiculo(int idTipoVehiculo,String nombreTipoVehiculo) {
-		this.tipoVehiculo.setId(idTipoVehiculo);
-		this.tipoVehiculo.setNombre(nombreTipoVehiculo);
+		//this.tipoVehiculo.setId(idTipoVehiculo);
+		//this.tipoVehiculo.setNombre(nombreTipoVehiculo);
+		this.tipoVehiculo = new TipoVehiculo(idTipoVehiculo, nombreTipoVehiculo);
 		return this;
 	}
 	
@@ -58,13 +59,18 @@ public class VehiculoTestBuilder {
 		return this;
 	}
 	
-	public VehiculoTestBuilder conCilindraje(double cilindraje) {
+	public VehiculoTestBuilder conCilindraje(Double cilindraje) {
 		this.cilindraje = cilindraje;
 		return this;
 	}
 	
 	public VehiculoTestBuilder conFechaEntrada(Date fechaEntrada) {
 		this.fechaEntrada = fechaEntrada;
+		return this;
+	}
+	
+	public VehiculoTestBuilder conFechaSalida(Date fechaSalida) {
+		this.fechaSalida = fechaSalida;
 		return this;
 	}
 	

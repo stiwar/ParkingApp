@@ -11,16 +11,17 @@ public class VehiculoComando implements Serializable {
 	private int id;
 	private TipoVehiculo tipoVehiculo;
 	private String placa;
-	private double cilindraje;
+	private Double cilindraje;
 	private Date fechaIngreso;
 	private Date fechaSalida;
+	private Double totalCobro;
 	private int estado;
 
 	public VehiculoComando() {
 
 	}
 
-	public VehiculoComando(int id, TipoVehiculo tipoVehiculo, String placa, double cilindraje, Date fechaIngreso,
+	public VehiculoComando(int id, TipoVehiculo tipoVehiculo, String placa, Double cilindraje, Date fechaIngreso,
 			int estado) {
 		this.id = id;
 		this.tipoVehiculo = tipoVehiculo;
@@ -30,8 +31,8 @@ public class VehiculoComando implements Serializable {
 		this.estado = estado;
 	}
 	
-	public VehiculoComando(int id, TipoVehiculo tipoVehiculo, String placa, double cilindraje, Date fechaIngreso, Date fechaSalida,
-			int estado) {
+	public VehiculoComando(int id, TipoVehiculo tipoVehiculo, String placa, Double cilindraje, Date fechaIngreso, Date fechaSalida,
+			int estado, Double totalCobro) {
 		this.id = id;
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
@@ -39,6 +40,7 @@ public class VehiculoComando implements Serializable {
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
 		this.estado = estado;
+		this.totalCobro = totalCobro;
 	}
 
 	public int getId() {
@@ -65,11 +67,11 @@ public class VehiculoComando implements Serializable {
 		this.placa = placa;
 	}
 
-	public double getCilindraje() {
+	public Double getCilindraje() {
 		return cilindraje;
 	}
 
-	public void setCilindraje(double cilindraje) {
+	public void setCilindraje(Double cilindraje) {
 		this.cilindraje = cilindraje;
 	}
 
@@ -97,4 +99,12 @@ public class VehiculoComando implements Serializable {
 		this.estado = estado;
 	}
 
+	public Double getTotalCobro() {
+		return totalCobro;
+	}
+
+	public void setTotalCobro(Double totalCobro) {
+		this.totalCobro = totalCobro;
+	}
+	
 }

@@ -19,7 +19,7 @@ public class ConsultarListaVehiculoConsultaManejador {
 		List<VehiculoComando> vehiculosComando = new ArrayList<>();
 		List<Vehiculo> listaVehiculos = servicioConsultaVehiculo.obtenerListaVehiculos();
 		for(Vehiculo vehiculo : listaVehiculos) {
-			vehiculosComando.add(new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado()));
+			vehiculosComando.add(new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro()));
 		}
 		
 		return vehiculosComando;
@@ -27,6 +27,6 @@ public class ConsultarListaVehiculoConsultaManejador {
 	
 	public VehiculoComando obtenerVehiculo(int idVehiculo){
 		Vehiculo vehiculo = servicioConsultaVehiculo.consultarVehiculo(idVehiculo);
-		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado());
+		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro());
 	}
 }
