@@ -34,6 +34,7 @@ public class ServicioRegistroVehiculoTest {
 	private static final int DIA_LUNES = 2;
 	private static final int DIA_MARTES = 3;
 	private static final int DIA_MIERCOLES = 4;
+	private static final int DIA_JUEVES = 5;
 
 	private VehiculoTestBuilder vehiculoBuilder;
 
@@ -85,7 +86,7 @@ public class ServicioRegistroVehiculoTest {
 		int diaObtenido = servicioRegistroVehiculo.obtenerDiaSemana();
 		
 		// assert
-		assertEquals(DIA_MIERCOLES, diaObtenido);
+		assertEquals(DIA_JUEVES, diaObtenido);
 	}
 
 	@Test(expected = VehiculoExcepcion.class)

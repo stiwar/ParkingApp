@@ -25,11 +25,11 @@ public class ServicioRetiroVehiculoTest {
 	private VehiculoTestBuilder vehiculoBuilder;
 	
 	private Vehiculo vehiculo;
-	private static final Date FECHA_INGRESO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 18, 8, 30, 00).getTime();//h,m,s
-	private static final Date FECHA_RETIRO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 19, 10, 52, 00).getTime();
+	private static final Date FECHA_INGRESO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 19, 10, 59, 00).getTime();//h,m,s
+	private static final Date FECHA_RETIRO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 20, 13, 56, 00).getTime();
 	
-	private static final Date FECHA_INGRESO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 8, 22, 00).getTime();
-	private static final Date FECHA_RETIRO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 10, 52, 00).getTime();
+	private static final Date FECHA_INGRESO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 10, 59, 00).getTime();
+	private static final Date FECHA_RETIRO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 13, 56, 00).getTime();
 	private static final int VEINTISIETE_HORAS = 27;
 	private static final int ID_VEHICULO_UN_DIA_TRES_HORAS_CARRO = 5;
 	private static final double COBRO_UN_DIA_TRES_HORAS_CARRO = 11000;
