@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import com.ceiba.parkingApp.parkingApp.aplicacion.comando.RegistrarVehiculoComandoManejador;
 import com.ceiba.parkingApp.parkingApp.aplicacion.comando.RetirarVehiculoComandoManejador;
 import com.ceiba.parkingApp.parkingApp.aplicacion.consulta.ConsultarListaVehiculoConsultaManejador;
-import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
+import com.ceiba.parkingApp.parkingApp.dominio.puerto.VehiculoRepositorioPort;
 import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioConsultaVehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioRegistroVehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioRetiroVehiculo;
@@ -30,17 +30,17 @@ public class Configurador {
 	}
 	
 	@Bean
-	public ServicioRegistroVehiculo servicioRegistroVehiculo(IVehiculoRepositorioPort vehiculoRepositorioPort) {
+	public ServicioRegistroVehiculo servicioRegistroVehiculo(VehiculoRepositorioPort vehiculoRepositorioPort) {
 		return new ServicioRegistroVehiculo(vehiculoRepositorioPort);
 	}
 	
 	@Bean
-	public ServicioRetiroVehiculo servicioRetiroVehiculo(IVehiculoRepositorioPort vehiculoRepositorioPort) {
+	public ServicioRetiroVehiculo servicioRetiroVehiculo(VehiculoRepositorioPort vehiculoRepositorioPort) {
 		return new ServicioRetiroVehiculo(vehiculoRepositorioPort);
 	}
 	
 	@Bean
-	public ServicioConsultaVehiculo servicioConsultaVehiculo(IVehiculoRepositorioPort vehiculoRepositorioPort) {
+	public ServicioConsultaVehiculo servicioConsultaVehiculo(VehiculoRepositorioPort vehiculoRepositorioPort) {
 		return new ServicioConsultaVehiculo(vehiculoRepositorioPort);
 	}
 

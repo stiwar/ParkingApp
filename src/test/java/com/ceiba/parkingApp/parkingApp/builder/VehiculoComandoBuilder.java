@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import com.ceiba.parkingApp.parkingApp.aplicacion.comando.VehiculoComando;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.TipoVehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.TipoVehiculo;
 
 public class VehiculoComandoBuilder {
 	
@@ -26,7 +26,6 @@ public class VehiculoComandoBuilder {
 	private Date fechaIngreso;
 	private Date fechaSalida;
 	private Double totalCobro;
-	private int estado;
 	
 	public VehiculoComandoBuilder() {
 		
@@ -77,13 +76,8 @@ public class VehiculoComandoBuilder {
 		this.totalCobro = totalCobro;
 		return this;
 	}
-	
-	public VehiculoComandoBuilder conEstado(int estado) {
-		this.estado = estado;
-		return this;
-	}
 
 	public VehiculoComando build() {
-		return new VehiculoComando(this.id, this.tipoVehiculo, this.placa, this.cilindraje, this.fechaIngreso, this.fechaSalida, this.estado, this.totalCobro);
+		return new VehiculoComando(this.id, this.tipoVehiculo.getId(), this.placa, this.cilindraje, this.fechaIngreso, this.fechaSalida, this.totalCobro);
 	}
 }

@@ -3,59 +3,55 @@ package com.ceiba.parkingApp.parkingApp.aplicacion.comando;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.TipoVehiculo;
-
 public class VehiculoComando implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;
-	private TipoVehiculo tipoVehiculo;
+	private Integer id;
+	private int tipoVehiculo;
 	private String placa;
 	private Double cilindraje;
 	private Date fechaIngreso;
 	private Date fechaSalida;
 	private Double totalCobro;
-	private int estado;
 
 	public VehiculoComando() {
 
 	}
 
-	public VehiculoComando(int id, TipoVehiculo tipoVehiculo, String placa, Double cilindraje, Date fechaIngreso,
-			int estado) {
-		this.id = id;
-		this.tipoVehiculo = tipoVehiculo;
-		this.placa = placa;
-		this.cilindraje = cilindraje;
-		this.fechaIngreso = fechaIngreso;
-		this.estado = estado;
-	}
-	
-	public VehiculoComando(int id, TipoVehiculo tipoVehiculo, String placa, Double cilindraje, Date fechaIngreso, Date fechaSalida,
-			int estado, Double totalCobro) {
+	public VehiculoComando(Integer id, int tipoVehiculo, String placa, Double cilindraje, Date fechaIngreso,
+			Date fechaSalida) {
 		this.id = id;
 		this.tipoVehiculo = tipoVehiculo;
 		this.placa = placa;
 		this.cilindraje = cilindraje;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
-		this.estado = estado;
+	}
+	
+	public VehiculoComando(Integer id, int tipoVehiculo, String placa, Double cilindraje, Date fechaIngreso,
+			Date fechaSalida,Double totalCobro) {
+		this.id = id;
+		this.tipoVehiculo = tipoVehiculo;
+		this.placa = placa;
+		this.cilindraje = cilindraje;
+		this.fechaIngreso = fechaIngreso;
+		this.fechaSalida = fechaSalida;
 		this.totalCobro = totalCobro;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public TipoVehiculo getTipoVehiculo() {
+	public int getTipoVehiculo() {
 		return tipoVehiculo;
 	}
 
-	public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public void setTipoVehiculo(int tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 	}
 
@@ -91,14 +87,6 @@ public class VehiculoComando implements Serializable {
 		this.fechaSalida = fechaSalida;
 	}
 
-	public int getEstado() {
-		return estado;
-	}
-
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
-
 	public Double getTotalCobro() {
 		return totalCobro;
 	}
@@ -106,5 +94,5 @@ public class VehiculoComando implements Serializable {
 	public void setTotalCobro(Double totalCobro) {
 		this.totalCobro = totalCobro;
 	}
-	
+
 }

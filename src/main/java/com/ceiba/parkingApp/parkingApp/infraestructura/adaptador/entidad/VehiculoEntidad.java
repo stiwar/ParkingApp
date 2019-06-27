@@ -38,14 +38,12 @@ public class VehiculoEntidad {
 	@Column(nullable = true)
 	private Double totalCobro;
 
-	@Column(nullable = false)
-	private int estado;
-
+	
 	public VehiculoEntidad() {
 	}
 
 	public VehiculoEntidad(Integer id, TipoVehiculoEntidad tipoVehiculoEntidad, String placa, Double cilindraje,
-			Date fechaEntrada, Date fechaSalida, Double totalCobro, int estado) {
+			Date fechaEntrada, Date fechaSalida, Double totalCobro) {
 		super();
 		this.id = id;
 		this.tipoVehiculoEntidad = tipoVehiculoEntidad;
@@ -54,7 +52,6 @@ public class VehiculoEntidad {
 		this.fechaEntrada = fechaEntrada;
 		this.fechaSalida = fechaSalida;
 		this.totalCobro = totalCobro;
-		this.estado = estado;
 	}
 
 	public Integer getId() {
@@ -111,14 +108,6 @@ public class VehiculoEntidad {
 
 	public void setTotalCobro(Double totalCobro) {
 		this.totalCobro = totalCobro;
-	}
-
-	public int getEstado() {
-		return estado;
-	}
-
-	public void setEstado(int estado) {
-		this.estado = estado;
 	}
 
 }

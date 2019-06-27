@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
-import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.puerto.VehiculoRepositorioPort;
 import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.entidad.VehiculoEntidad;
 import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.mapeo.VehiculoMapeo;
-import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.repositorio.IVehiculoRepositorio;
+import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.repositorio.VehiculoRepositorio;
 
 @Component
-public class VehiculoAdaptadorImpl implements IVehiculoRepositorioPort {
+public class VehiculoAdaptador implements VehiculoRepositorioPort {
 
 	@Autowired
-	private IVehiculoRepositorio vehiculoRepositorio;
+	private VehiculoRepositorio vehiculoRepositorio;
 
 	@Autowired
 	private VehiculoMapeo vehiculoMapeo;

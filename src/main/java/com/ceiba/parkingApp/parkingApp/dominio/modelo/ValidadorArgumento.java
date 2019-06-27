@@ -1,4 +1,4 @@
-package com.ceiba.parkingApp.parkingApp.dominio.entidad;
+package com.ceiba.parkingApp.parkingApp.dominio.modelo;
 
 import com.ceiba.parkingApp.parkingApp.dominio.excepcion.VehiculoExcepcion;
 

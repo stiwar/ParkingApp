@@ -11,9 +11,9 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ceiba.parkingApp.parkingApp.builder.VehiculoTestBuilder;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.excepcion.VehiculoExcepcion;
-import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.puerto.VehiculoRepositorioPort;
 import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioRegistroVehiculo;
 
 //@SpringBootTest
@@ -41,7 +41,7 @@ public class ServicioRegistroVehiculoTest {
 	private Vehiculo vehiculo;
 
 	@Mock
-	private IVehiculoRepositorioPort vehiculoRepositorioPort;
+	private VehiculoRepositorioPort vehiculoRepositorioPort;
 
 	@InjectMocks
 	private ServicioRegistroVehiculo servicioRegistroVehiculo;

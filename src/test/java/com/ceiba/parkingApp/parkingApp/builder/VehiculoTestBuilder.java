@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.TipoVehiculo;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.TipoVehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
 
 public class VehiculoTestBuilder {
 	
@@ -17,7 +17,6 @@ public class VehiculoTestBuilder {
 	private static final Date FECHA_INGRESO_VEHICULO = new GregorianCalendar(2019, Calendar.JUNE, 13, 8, 21, 33).getTime();
 	private static final Date FECHA_RETIRO_VEHICULO = new GregorianCalendar(2019, Calendar.JUNE, 13, 10, 13, 15).getTime();
 	private static final double COBRO_SALIDA_VEHICULO = 0;
-	private static final int ESTADO_INACTIVO_VEHICULO = 0;
 	
 	private int id;
 	private TipoVehiculo tipoVehiculo;
@@ -26,8 +25,6 @@ public class VehiculoTestBuilder {
 	private Date fechaEntrada;
 	private Date fechaSalida;
 	private Double totalCobro;
-	private int estado;
-	
 	
 	public VehiculoTestBuilder() {
 		this.tipoVehiculo = new TipoVehiculo(ID_TIPO_VEHICULO_AUTO,NOMBRE_TIPO_VEHICULO_CARRO);
@@ -37,7 +34,6 @@ public class VehiculoTestBuilder {
 		this.fechaEntrada = FECHA_INGRESO_VEHICULO;
 		this.fechaSalida = FECHA_RETIRO_VEHICULO;
 		this.totalCobro = COBRO_SALIDA_VEHICULO;
-		this.estado = ESTADO_INACTIVO_VEHICULO;
 	}
 	
 	public VehiculoTestBuilder conId(int id) {
@@ -46,8 +42,6 @@ public class VehiculoTestBuilder {
 	}
 	
 	public VehiculoTestBuilder conTipoVehiculo(int idTipoVehiculo,String nombreTipoVehiculo) {
-		//this.tipoVehiculo.setId(idTipoVehiculo);
-		//this.tipoVehiculo.setNombre(nombreTipoVehiculo);
 		this.tipoVehiculo = new TipoVehiculo(idTipoVehiculo, nombreTipoVehiculo);
 		return this;
 	}
@@ -73,7 +67,7 @@ public class VehiculoTestBuilder {
 	}
 	
 	public Vehiculo build() {
-		return new Vehiculo(this.id, this.tipoVehiculo, this.placa, this.cilindraje, this.fechaEntrada, this.fechaSalida, this.totalCobro, this.estado);
+		return new Vehiculo(this.id, this.tipoVehiculo, this.placa, this.cilindraje, this.fechaEntrada, this.fechaSalida, this.totalCobro);
 	}
 	
 }

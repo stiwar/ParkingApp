@@ -3,9 +3,9 @@ package com.ceiba.parkingApp.parkingApp.dominio.servicio;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.excepcion.VehiculoExcepcion;
-import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.puerto.VehiculoRepositorioPort;
 
 public class ServicioRegistroVehiculo {
 
@@ -18,11 +18,11 @@ public class ServicioRegistroVehiculo {
 	private static final int POSICION_LETRA_INICIAL_PLACA_VEHICULO = 0;
 	private static final String LETRA_A = "A";
 	private static final String ACCESO_DENEGADO = "Las placas que inician con la letra '" + LETRA_A	+ "' solo pueden ingresar los Domingos o Lunes";
-	private static int VEHICULO_ESTADO_ACTIVO = 1;
+	private static final int MARTES = 3;
 
-	private IVehiculoRepositorioPort vehiculoRepositorioPort;
+	private VehiculoRepositorioPort vehiculoRepositorioPort;
 	
-	public ServicioRegistroVehiculo(IVehiculoRepositorioPort vehiculoRepositorioPort) {
+	public ServicioRegistroVehiculo(VehiculoRepositorioPort vehiculoRepositorioPort) {
 		this.vehiculoRepositorioPort = vehiculoRepositorioPort;
 	}
 
@@ -30,26 +30,26 @@ public class ServicioRegistroVehiculo {
 		String nombreTipoVehiculo = vehiculo.getTipoVehiculo().getNombre();
 		int idTipoVehiculo = vehiculo.getTipoVehiculo().getId();
 
-		if (nombreTipoVehiculo.equalsIgnoreCase(CARRO)
-				&& obtenerCantidadVehiculos(idTipoVehiculo) >= LIMITE_MAXIMO_CARROS) {
+		if (nombreTipoVehiculo.equalsIgnoreCase(CARRO) && obtenerCantidadVehiculos(idTipoVehiculo) >= LIMITE_MAXIMO_CARROS) {
+			
 			throw new VehiculoExcepcion(NO_HAY_ESPACIO_PARA_CARROS);
-		}
-
-		if (nombreTipoVehiculo.equalsIgnoreCase(MOTO)
-				&& obtenerCantidadVehiculos(idTipoVehiculo) >= LIMITE_MAXIMO_MOTOS) {
+			
+		}else if (nombreTipoVehiculo.equalsIgnoreCase(MOTO) && obtenerCantidadVehiculos(idTipoVehiculo) >= LIMITE_MAXIMO_MOTOS) {
+			
 			throw new VehiculoExcepcion(NO_HAY_ESPACIO_PARA_MOTOS);
+			
 		}
 
 		String letraInicialPlaca = obtenerLetraInicialPlaca(vehiculo.getPlaca());
-		
 		int diaSemana = obtenerDiaSemana();
-		if (letraInicialPlaca.equalsIgnoreCase(LETRA_A)
-				&& (diaSemana != Calendar.SUNDAY && diaSemana != Calendar.MONDAY)) {
+		//if (letraInicialPlaca.equalsIgnoreCase(LETRA_A) && (diaSemana != Calendar.SUNDAY && diaSemana != Calendar.MONDAY)) {
+		if (letraInicialPlaca.equalsIgnoreCase(LETRA_A) && diaSemana < MARTES) {
+			
 			throw new VehiculoExcepcion(ACCESO_DENEGADO);
+			
 		}
 
 		vehiculo.setFechaEntrada(new Date());
-		vehiculo.setEstado(VEHICULO_ESTADO_ACTIVO);
 		return vehiculoRepositorioPort.registrarVehiculo(vehiculo);
 	}
 

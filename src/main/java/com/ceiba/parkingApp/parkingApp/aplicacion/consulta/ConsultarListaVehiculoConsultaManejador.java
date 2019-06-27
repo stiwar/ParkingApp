@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ceiba.parkingApp.parkingApp.aplicacion.comando.VehiculoComando;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.aplicacion.fabrica.FabricaVehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
 import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioConsultaVehiculo;
 
 public class ConsultarListaVehiculoConsultaManejador {
@@ -19,7 +20,8 @@ public class ConsultarListaVehiculoConsultaManejador {
 		List<VehiculoComando> vehiculosComando = new ArrayList<>();
 		List<Vehiculo> listaVehiculos = servicioConsultaVehiculo.obtenerListaVehiculos();
 		for(Vehiculo vehiculo : listaVehiculos) {
-			vehiculosComando.add(new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro()));
+			vehiculosComando.add(FabricaVehiculo.crearVehiculoComando(vehiculo));
+			//vehiculosComando.add(new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro()));
 		}
 		
 		return vehiculosComando;
@@ -27,6 +29,7 @@ public class ConsultarListaVehiculoConsultaManejador {
 	
 	public VehiculoComando obtenerVehiculo(int idVehiculo){
 		Vehiculo vehiculo = servicioConsultaVehiculo.consultarVehiculo(idVehiculo);
-		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro());
+		return  FabricaVehiculo.crearVehiculoComando(vehiculo);
+		//return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida(), vehiculo.getEstado(), vehiculo.getTotalCobro());
 	}
 }

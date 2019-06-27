@@ -2,7 +2,7 @@ package com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.mapeo;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.TipoVehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.TipoVehiculo;
 import com.ceiba.parkingApp.parkingApp.infraestructura.adaptador.entidad.TipoVehiculoEntidad;
 
 

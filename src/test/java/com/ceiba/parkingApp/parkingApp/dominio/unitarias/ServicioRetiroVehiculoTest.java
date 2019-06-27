@@ -15,8 +15,8 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ceiba.parkingApp.parkingApp.builder.VehiculoTestBuilder;
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
-import com.ceiba.parkingApp.parkingApp.dominio.puerto.IVehiculoRepositorioPort;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.puerto.VehiculoRepositorioPort;
 import com.ceiba.parkingApp.parkingApp.dominio.servicio.ServicioRetiroVehiculo;
 
 @RunWith(SpringRunner.class)
@@ -25,11 +25,11 @@ public class ServicioRetiroVehiculoTest {
 	private VehiculoTestBuilder vehiculoBuilder;
 	
 	private Vehiculo vehiculo;
-	private static final Date FECHA_INGRESO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 19, 10, 59, 00).getTime();//h,m,s
-	private static final Date FECHA_RETIRO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 20, 13, 56, 00).getTime();
+	private static final Date FECHA_INGRESO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 19, 11, 20, 00).getTime();//h,m,s
+	private static final Date FECHA_RETIRO_UN_DIA_TRES_HORAS_CARRO = new GregorianCalendar(2019, Calendar.JUNE, 20, 14, 10, 00).getTime();
 	
-	private static final Date FECHA_INGRESO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 10, 59, 00).getTime();
-	private static final Date FECHA_RETIRO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 13, 56, 00).getTime();
+	private static final Date FECHA_INGRESO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 11, 20, 00).getTime();
+	private static final Date FECHA_RETIRO_MOTO_ALTO_CILINDRAJE = new GregorianCalendar(2019, Calendar.JUNE, 19, 14, 10, 00).getTime();
 	private static final int VEINTISIETE_HORAS = 27;
 	private static final int ID_VEHICULO_UN_DIA_TRES_HORAS_CARRO = 5;
 	private static final double COBRO_UN_DIA_TRES_HORAS_CARRO = 11000;
@@ -43,7 +43,7 @@ public class ServicioRetiroVehiculoTest {
 	private static final int ID_MOTO = 6;
 	
 	@Mock
-	private IVehiculoRepositorioPort vehiculoRepositorioPort;
+	private VehiculoRepositorioPort vehiculoRepositorioPort;
 	
 	@InjectMocks
 	ServicioRetiroVehiculo servicioRetiroVehiculo;

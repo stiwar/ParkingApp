@@ -2,9 +2,9 @@ package com.ceiba.parkingApp.parkingApp.dominio.puerto;
 
 import java.util.List;
 
-import com.ceiba.parkingApp.parkingApp.dominio.entidad.Vehiculo;
+import com.ceiba.parkingApp.parkingApp.dominio.modelo.Vehiculo;
 
-public interface IVehiculoRepositorioPort {
+public interface VehiculoRepositorioPort {
 
 	public List<Vehiculo> obtenerVehiculos();
 

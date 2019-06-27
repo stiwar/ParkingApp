@@ -20,7 +20,7 @@ import com.ceiba.parkingApp.parkingApp.aplicacion.consulta.ConsultarListaVehicul
 @RestController
 @RequestMapping(value = "/servicio")
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class VehiculoControlador {
 
 	private RegistrarVehiculoComandoManejador registrarVehiculoComandoManejador;
