@@ -12,9 +12,9 @@ public class FabricaVehiculo {
 	private static final String CADENA_CARRO = "Carro";
 	private static final String CADENA_MOTO = "Moto";
 	private static final String ID_TIPO_VEHICULO_OBLIGATORIO = "El Id del tipo de vehiculo es obligatorio";
-	
+
 	private FabricaVehiculo() {
-		
+
 	}
 
 	public static Vehiculo crearVehiculo(VehiculoComando vehiculoComando) {
@@ -23,25 +23,26 @@ public class FabricaVehiculo {
 		TipoVehiculo tipoVehiculo = null;
 
 		if (vehiculoComando.getTipoVehiculo() == ID_CARRO) {
-			
+
 			tipoVehiculo = new TipoVehiculo(vehiculoComando.getTipoVehiculo(), CADENA_CARRO);
 			vehiculo = new Vehiculo(tipoVehiculo, vehiculoComando.getPlaca(), vehiculoComando.getCilindraje());
-			
+
 		} else if (vehiculoComando.getTipoVehiculo() == ID_MOTO) {
 			tipoVehiculo = new TipoVehiculo(vehiculoComando.getTipoVehiculo(), CADENA_MOTO);
 			vehiculo = new Vehiculo(tipoVehiculo, vehiculoComando.getPlaca(), vehiculoComando.getCilindraje());
-		}else {
+		} else {
 			throw new VehiculoExcepcion(ID_TIPO_VEHICULO_OBLIGATORIO);
 		}
-		
+
 		return vehiculo;
-		
+
 	}
-	
+
 	public static VehiculoComando crearVehiculoComando(Vehiculo vehiculo) {
-		
-		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo().getId(), vehiculo.getPlaca(), vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida());
-		
+
+		return new VehiculoComando(vehiculo.getId(), vehiculo.getTipoVehiculo().getId(), vehiculo.getPlaca(),
+				vehiculo.getCilindraje(), vehiculo.getFechaEntrada(), vehiculo.getFechaSalida());
+
 	}
 
 }
