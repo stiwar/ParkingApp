@@ -17,6 +17,7 @@ public class ConsultarListaVehiculoConsultaManejador {
 	}
 	
 	public List<VehiculoComando> obtenerVehiculos(){
+		
 		List<VehiculoComando> vehiculosComando = new ArrayList<>();
 		List<Vehiculo> listaVehiculos = servicioConsultaVehiculo.obtenerListaVehiculos();
 		for(Vehiculo vehiculo : listaVehiculos) {

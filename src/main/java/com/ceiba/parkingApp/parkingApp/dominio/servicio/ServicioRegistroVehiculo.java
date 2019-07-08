@@ -18,7 +18,7 @@ public class ServicioRegistroVehiculo {
 	private static final int POSICION_LETRA_INICIAL_PLACA_VEHICULO = 0;
 	private static final String LETRA_A = "A";
 	private static final String ACCESO_DENEGADO = "Las placas que inician con la letra '" + LETRA_A	+ "' solo pueden ingresar los Domingos o Lunes";
-	private static final int MARTES = 3;
+	private static final int LUNES = 2;
 
 	private VehiculoRepositorioPort vehiculoRepositorioPort;
 	
@@ -43,7 +43,7 @@ public class ServicioRegistroVehiculo {
 		String letraInicialPlaca = obtenerLetraInicialPlaca(vehiculo.getPlaca());
 		int diaSemana = obtenerDiaSemana();
 		//if (letraInicialPlaca.equalsIgnoreCase(LETRA_A) && (diaSemana != Calendar.SUNDAY && diaSemana != Calendar.MONDAY)) {
-		if (letraInicialPlaca.equalsIgnoreCase(LETRA_A) && diaSemana < MARTES) {
+		if (letraInicialPlaca.equalsIgnoreCase(LETRA_A) && diaSemana > LUNES) {
 			
 			throw new VehiculoExcepcion(ACCESO_DENEGADO);
 			

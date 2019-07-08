@@ -8,15 +8,6 @@ public class TipoVehiculo {
 	public TipoVehiculo() {
 	}
 	
-	public TipoVehiculo(Integer id) {
-		this.id = id;
-	}
-
-	public TipoVehiculo(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-
 	public TipoVehiculo(Integer id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
